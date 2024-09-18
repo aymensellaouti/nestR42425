@@ -3,10 +3,11 @@ import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor() {}
 
-  @Get()
+  //Combinaison Method + URI => quelle request executer
+  @Get('')
   getHello(): string {
-    return this.appService.getHello();
+    return 'HELLO RT4 2024 2025';
   }
 }
