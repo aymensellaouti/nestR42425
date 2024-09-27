@@ -1,11 +1,14 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
+import { FirstService } from './first.service';
 
 @Controller('first')
 export class FirstController {
-  students: string[] = [];
+  firstService = new FirstService();
+  constructor(){}
+
   @Get()  
   public bonjour(): string[] {
-      return this.students;
+      return this.firstService.getStudents();
   }
 
 
@@ -13,9 +16,6 @@ export class FirstController {
   public addStudent(
     @Body('name') name: string
   ): string[] {
-    console.log(name);
-    
-    this.students.unshift(name);
-    return this.students;
+    return this.firstService.addStudent(name);
   }
 }
