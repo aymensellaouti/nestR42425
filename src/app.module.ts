@@ -3,7 +3,6 @@ import { AppController } from './app.controller';
 
 import { FirstModule } from './first/first.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { FirstEntity } from './first/entity/first.entity';
 
 @Module({
   imports: [
@@ -14,7 +13,7 @@ import { FirstEntity } from './first/entity/first.entity';
       port: 3306,
       username: 'root', 
       password: '', 
-      database: 'rt4Nest2425', 
+      database: 'rt_nest', 
       autoLoadEntities: true, 
       synchronize: true, 
       logging: true

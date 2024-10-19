@@ -1,6 +1,6 @@
 import { Injectable, LoggerService } from "@nestjs/common";
 import { LoggerServiceService } from "./logger-service/logger-service.service";
-import { FirstEntity } from "./entity/first.entity";
+import { First} from "./entity/first.entity";
 import { Repository } from "typeorm";
 import { InjectRepository } from "@nestjs/typeorm";
 import { AddUserDto } from "./dto/add-user.dto";
@@ -8,10 +8,10 @@ import { AddUserDto } from "./dto/add-user.dto";
 @Injectable()
 export class FirstService {
     constructor(
-     @InjectRepository(FirstEntity)   
-     private firstRepository: Repository<FirstEntity>
+     @InjectRepository(First)   
+     private firstRepository: Repository<First>
     ) {}
-    getStudents(): FirstEntity[] {
+    getStudents(): First[] {
         return [];
     }
 
