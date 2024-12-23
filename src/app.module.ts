@@ -1,8 +1,9 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { AppController } from './app.controller';
 
 import { FirstModule } from './first/first.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { FirstMiddleware } from './middlware/first/first.middleware';
 
 @Module({
   imports: [
@@ -22,4 +23,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
   controllers: [AppController],
   providers: [],
 })
-export class AppModule { }
+export class AppModule implements NestModule{
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(FirstMiddleware).forRoutes('first')
+  }
+}

@@ -11,8 +11,8 @@ export class FirstService {
      @InjectRepository(First)   
      private firstRepository: Repository<First>
     ) {}
-    getStudents(): First[] {
-        return [];
+    getStudents(): Promise<First[]> {
+        return this.firstRepository.find();
     }
 
     async addStudent(user: AddUserDto) {
